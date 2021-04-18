@@ -1,1 +1,2 @@
-(()=>{"use strict";document.querySelector("body").innerHTML="<h1>Hello Webpack</h1>",console.log(["Jaipur","Delhi","Paris"])})();
+(()=>{"use strict";var e,o,r,t={673:(e,o)=>{Object.defineProperty(o,"__esModule",{value:!0}),o.default=function(e,o){return e*o}}},l={};function n(e){var o=l[e];if(void 0!==o)return o.exports;var r=l[e]={exports:{}};return t[e](r,r.exports,n),r.exports}e=n(673),o=document.querySelector("body"),r=e.default(5,7),console.log(r),o.innerHTML="<h1>Hello Webpack</h1>",console.log(["Jaipur","Delhi","Paris"]),console.log("garv")})();
+//# sourceMappingURL=bundle.js.map

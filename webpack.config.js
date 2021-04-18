@@ -1,8 +1,16 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const path = require("path")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CheckerPlugin } = require('awesome-typescript-loader')
+const path = require('path')
 
 module.exports = {
-    entry: "./app/index.js",
+    entry: './app/index.ts',
+    // Currently we need to add '.ts' to the resolve.extensions array.
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },
+
+    // Source maps support ('inline-source-map' also works)
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -11,20 +19,22 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(js)$/,
-                use: "babel-loader",
-            }
-        ]
+                use: 'babel-loader',
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+            },
+        ],
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
     },
-    plugins: [
-        new HtmlWebpackPlugin()
-    ],
-    mode: process.env.NODE_ENV === "production" ? "production" : "development"
+    plugins: [new HtmlWebpackPlugin(), new CheckerPlugin()],
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 }
