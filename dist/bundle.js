@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector("body").innerHTML="<h1>Hello Webpack</h1>",console.log(["Jaipur","Delhi","Paris"])})();
